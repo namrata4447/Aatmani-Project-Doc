@@ -129,6 +129,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
      - Push the prod-latest to the ECR, now the output in ECR has a new image as prod-latest along with commit ID of the untagged image,dev-latest and prod-latest.
      - Set up an alert on slack when the job is successful/failed.
      - If any stage fails in between it shouldn't proceed to the next phase and send alert on slack.
+   ![alt text](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Jenkins%20ECR.drawio.png)
 
 #### Workflow 7
 ### Metrics Server
