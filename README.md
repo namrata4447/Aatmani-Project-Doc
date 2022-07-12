@@ -98,7 +98,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
 - Create credentials for slack(secret text),GIT and AWS(AWS credentials)
 - Create 3 jenkins job and push these nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline  scripts to namrata-aatmani's development repo.
 
-1. Build and Deploy to the Dev.
+1. [Build and Deploy to the Dev ][df1] 
      - Create a webhook in namrata-aatmani's development repo by including the jenkins url and in the jenkins job click on the ‘Build Triggers’ tab 
        and then on the ‘GitHub hook trigger for GITScm polling’ so that the  job triggers automaticaly when there is merge in to main branch.
      - In the jenkins pipeline script Git clone
@@ -110,7 +110,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
      - Integrate slack with jenkins by creating new channel (#jenkins-alert) to set up an alert on slack when the job is successful/failed.
      - If any stage fails in between it shouldn't proceed to the next phase and send alert on slack.
      
-2. Deploy to the QA.
+2. [Deploy to the QA ][df1]
      - In the jenkins pipeline script Git clone 
        the repo https://github.com/namrata-aatmani/productionteam.git, the script should pull the nodejs repo.
      - login into ECR.
@@ -119,7 +119,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
      - Set up an alert on slack when the job is successful/failed. 
      - If any stage fails in between it shouldn't proceed to the next phase and send alert on slack.
  
-3. Deploy to the Prod
+3. [Deploy to the Prod][df1] 
      - In the jenkins pipeline script Git clone 
        the repo https://github.com/namrata-aatmani/productionteam.git, the script should pull the nodejs repo.
      - login into ECR.
@@ -155,7 +155,7 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 ### Monitoring Tools installation and setup
 ##### Prometheus Architecture Components
 Prometheus is an open source tool for monitoring and alerting applications.
-- [Prometheus Server][df1] - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
+- Prometheus Server - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
 - [Node Exporter][df1] - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
 - [Alert Manager][df1] - It handles alerts sent based upon the metrics data collected in Prometheus and send event notifications to your configured notification channels  like Slack  when your Kubernetes cluster meets pre-configured events and metrics rules in the Prometheus server.
 - [Web UI ][df1] - Provides end user with an interface to visualize data collected by prometheus.For this we will be using  Grafana to visualize the data.
