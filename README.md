@@ -151,7 +151,7 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 > link used:
 - https://www.kubecost.com/kubernetes-autoscaling/kubernetes-hpa/
 
-## Workflow 9
+#### Workflow 9
 ### Monitoring Tools installation and setup
 ##### Prometheus Architecture Components
 Prometheus is an open source tool for monitoring and alerting applications.
@@ -184,7 +184,7 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Click on Datasources, choose Prometheus and set the IP address in grafana.
 - A Dashboard is created and we imported necessary dashboard in grafana to visualize the metrics.
 
-## Workflow 10
+#### Workflow 10
 ### Logging Tools installation and setup
 #### EFK [ Elasticsearch, Fluent-bit and Kibana ]
 - [EFK] [df1] - is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
