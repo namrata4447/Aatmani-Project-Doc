@@ -98,7 +98,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
 - Create credentials for slack(secret text),GIT and AWS(AWS credentials)
 - Create 3 jenkins job and push these nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline  scripts to namrata-aatmani's development repo.
 
-1. [Build and Deploy to the Dev ][df1] 
+1. Build and Deploy to the Dev  
      - Create a webhook in namrata-aatmani's development repo by including the jenkins url and in the jenkins job click on the ‘Build Triggers’ tab 
        and then on the ‘GitHub hook trigger for GITScm polling’ so that the  job triggers automaticaly when there is merge in to main branch.
      - In the jenkins pipeline script Git clone
@@ -110,7 +110,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
      - Integrate slack with jenkins by creating new channel (#jenkins-alert) to set up an alert on slack when the job is successful/failed.
      - If any stage fails in between it shouldn't proceed to the next phase and send alert on slack.
      
-2. [Deploy to the QA ][df1]
+2. Deploy to the QA 
      - In the jenkins pipeline script Git clone 
        the repo https://github.com/namrata-aatmani/productionteam.git, the script should pull the nodejs repo.
      - login into ECR.
@@ -119,7 +119,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
      - Set up an alert on slack when the job is successful/failed. 
      - If any stage fails in between it shouldn't proceed to the next phase and send alert on slack.
  
-3. [Deploy to the Prod][df1] 
+3. Deploy to the Prod 
      - In the jenkins pipeline script Git clone 
        the repo https://github.com/namrata-aatmani/productionteam.git, the script should pull the nodejs repo.
      - login into ECR.
@@ -139,7 +139,7 @@ Metrics Server collects resource metrics from Kubelets and exposes them in Kuber
 ### Cluster Autoscaler (CA)
 The Cluster Autoscaler automatically adds or removes nodes in a cluster based on resource requests from pods. The Cluster Autoscaler doesn’t directly measure CPU and memory usage values to make a scaling decision. Instead, it checks every 10 seconds to detect any pods in a pending state, suggesting that the scheduler could not assign them to a node due to insufficient cluster capacity.
 In the scaling-up scenario, CA automatically kicks in when the number of pending (un-schedulable) pods increases due to resource shortages and works to add additional nodes to the cluster.
-> links used :
+> link used :
 - https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler/
 
 #### Workflow 8
@@ -156,9 +156,10 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 ##### Prometheus Architecture Components
 Prometheus is an open source tool for monitoring and alerting applications.
 - Prometheus Server - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
-- [Node Exporter][df1] - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
-- [Alert Manager][df1] - It handles alerts sent based upon the metrics data collected in Prometheus and send event notifications to your configured notification channels  like Slack  when your Kubernetes cluster meets pre-configured events and metrics rules in the Prometheus server.
-- [Web UI ][df1] - Provides end user with an interface to visualize data collected by prometheus.For this we will be using  Grafana to visualize the data.
+- Node Exporter - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
+- Alert Manager - It handles alerts sent based upon the metrics data collected in Prometheus and send event notifications to your configured notification
+  channels  like Slack  when your Kubernetes cluster meets pre-configured events and metrics rules in the Prometheus server.
+- Web UI - Provides end user with an interface to visualize data collected by prometheus.For this we will be using  Grafana to visualize the data.
 > Installation link : Prometheus
 https://artifacthub.io/packages/helm/prometheus-community/prometheus
 
@@ -187,12 +188,12 @@ https://artifacthub.io/packages/helm/grafana/grafana
 #### Workflow 10
 ### Logging Tools installation and setup
 #### EFK [ Elasticsearch, Fluent-bit and Kibana ]
-- [EFK] [df1] - is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
-- [EFK stack] [df1] - is a centralized logging which identifies problems with servers or applications. It searches for the logs in a single place, helps to find 
+- EFK- is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
+- EFK stack - is a centralized logging which identifies problems with servers or applications. It searches for the logs in a single place, helps to find 
   issues in multiple servers by connecting logs for a specific time series.
-- [ElasticSearch] [df1] - Acts as a database where the data is collected and logs will be stored.
-- [Fluent-Bit] [df1] - is an open source, light-weight, and multi-platform service created for data collection mainly logs and streams of data.
-- [Kibana] [df1] - is a visualization tool, which accesses the logs from Elasticsearch and is able to display to the user in the form of line graph, bar graph,
+- ElasticSearch - Acts as a database where the data is collected and logs will be stored.
+- Fluent-Bit - is an open source, light-weight, and multi-platform service created for data collection mainly logs and streams of data.
+- Kibana - is a visualization tool, which accesses the logs from Elasticsearch and is able to display to the user in the form of line graph, bar graph,
   pie charts etc. 
   
 #### Installation and set-up of Elasticseach:
