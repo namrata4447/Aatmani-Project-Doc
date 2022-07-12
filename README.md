@@ -2,8 +2,8 @@
 # Executive Summary
 - Project Description and Goals
 - Technical Specifications
- -----Software tools used
- ----- Software Description
+  > Software tools used
+  > Software Description
 - Project Workflow
 
 # Project Description and Goals
