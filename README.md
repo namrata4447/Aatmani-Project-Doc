@@ -162,6 +162,7 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 ### Monitoring Tools installation and setup
 ##### Prometheus Architecture Components
 ![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Prometheus%20Grafana.drawio.png)
+
 Prometheus is an open source tool for monitoring and alerting applications.
 - Prometheus Server - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
 - Node Exporter - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
