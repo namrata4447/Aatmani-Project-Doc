@@ -6,6 +6,7 @@
   -- Software tools used
   
   -- Software Description
+- Project Architecture
 - Project Workflow
 
 # Project Description and Goals
@@ -57,8 +58,10 @@ Kibana is an open source data visualization dashboard for Elasticsearch. It prov
 #### Fluent-bit
 Fluent Bit is a super fast, lightweight, and highly scalable logging and metrics processor and forwarder. It is the preferred choice for cloud and containerized environments.
 
-## Project Workflow
+## Project Architecture
 ![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Project%20Overview.drawio.png)
+
+## Project Workflow
 #### Workflow 1
 Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ) i.e a Master Cluster and Worker Nodes respectively.
 > Installation link: Terraform
@@ -158,6 +161,7 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 #### Workflow 9
 ### Monitoring Tools installation and setup
 ##### Prometheus Architecture Components
+![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Prometheus%20Grafana.drawio.png)
 Prometheus is an open source tool for monitoring and alerting applications.
 - Prometheus Server - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
 - Node Exporter - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
