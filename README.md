@@ -196,6 +196,8 @@ https://artifacthub.io/packages/helm/grafana/grafana
 
 #### Workflow 10
 ### Logging Tools installation and setup
+![alt test] (https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/EFK%20Overview.drawio.png)
+
 #### EFK [ Elasticsearch, Fluent-bit and Kibana ]
 - EFK- is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
 - EFK stack - is a centralized logging which identifies problems with servers or applications. It searches for the logs in a single place, helps to find 
