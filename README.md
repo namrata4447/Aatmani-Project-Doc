@@ -58,6 +58,7 @@ Kibana is an open source data visualization dashboard for Elasticsearch. It prov
 Fluent Bit is a super fast, lightweight, and highly scalable logging and metrics processor and forwarder. It is the preferred choice for cloud and containerized environments.
 
 ## Project Workflow
+![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Project%20Overview.drawio.png)
 #### Workflow 1
 Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ) i.e a Master Cluster and Worker Nodes respectively.
 > Installation link: Terraform
