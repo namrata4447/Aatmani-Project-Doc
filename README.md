@@ -89,7 +89,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-o
 https://www.codegrepper.com/code-examples/shell/install+kubectl+ubuntu+20.04
 - Created 3 namespaces in Eks Cluster ie. dev,qa and prod in the jumpbox where helm is installed i.e dev environment is for developer Team , qa environment is for testing team. And prod environment is for production team.
 - After creating the helm chart rename the values.yml file to dev-values.yml,qa-values.yml,prod-values.yml add ECR repo url 
-(point in ref with Workflow 5),replicaCount:1 (dev),replicaCount:1 (qa),replicaCount:2 (prod), Service type: LoadBalancer, port number:3000 and push the code to github repo. 
+(point in ref with Workflow 5),replicaCount:1 (dev),replicaCount:1 (qa),replicaCount:2 (prod), Service type: LoadBalancer, port number:3000 and push the code to github repo. Three loadbalancers will get created w.r.t dev,qa and prod in aws console.A service of type LoadBalancer is the simplest and the fastest way to expose a service inside a Kubernetes cluster to the external world. 
 
 #### Workflow 5
 - Create a Amazon Elastic Container Registry(ECR) repo and upload latest image.
