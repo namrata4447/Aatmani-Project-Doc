@@ -1,17 +1,20 @@
 # NodeJs project documentation
 # Executive Summary
 - Project Description and Goals
+- Project Architecture
 - Technical Specifications
 
   -- Software tools used
   
   -- Software Description
-- Project Architecture
 - Project Workflow
 
 # Project Description and Goals
 In this project we have used NodeJs web application to automate the infrastructure set up on AWS Cloud using Terraform by deploying the application in three different environments which includes DEV,QA,PROD using Helm .We need to monitor the application using the monitoring tools i.e Prometheus and Grafana , further check the logs of the application received using logging tools i.e  ElasticSearch, fluent-bit and Kibana.
 To access the project sources log on to https://github.com/namrata-aatmani.
+
+## Project Architecture
+![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Project%20Overview.drawio.png)
   
 # Technical Specifications
 ###  Software Tools used:
@@ -57,9 +60,6 @@ Kibana is an open source data visualization dashboard for Elasticsearch. It prov
 
 #### Fluent-bit
 Fluent Bit is a super fast, lightweight, and highly scalable logging and metrics processor and forwarder. It is the preferred choice for cloud and containerized environments.
-
-## Project Architecture
-![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Project%20Overview.drawio.png)
 
 ## Project Workflow
 #### Workflow 1
