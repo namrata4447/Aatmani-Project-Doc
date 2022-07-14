@@ -10,7 +10,7 @@
 - Project Workflow
 
 # Project Description and Goals
-In this project we have used NodeJs web application to automate the infrastructure set up on AWS Cloud using Terraform by deploying the application in three different environments which includes DEV,QA,PROD using Helm .We need to monitor the application using the monitoring tools i.e Prometheus and Grafana , further check the logs of the application received using logging tools i.e  ElasticSearch, fluent-bit and Kibana.
+In this project we have used NodeJs web application to automate the infrastructure set up on AWS Cloud using Terraform i.e we created a VPC and EKS cluster and deployed the application in three different environments which includes DEV,QA,PROD using Helm .We used jenkins pipeline to build jobs for DEV,QA,PROD and then push the image to ECR ,we need to monitor the application using the monitoring tools i.e Prometheus and Grafana , further checked the logs of the executed application using logging tools i.e  ElasticSearch, Fluent-bit and Kibana.
 To access the project sources log on to https://github.com/namrata-aatmani.
 
 ## Project Architecture
