@@ -78,6 +78,8 @@ Created organization by name namrata-aatmani on Github having two different repo
 
 #### Workflow 3
 In github organization namely namrata-aatmani's productionteam repo, if a developer updates any code change in the main branch,it should not directly merge to the main branch, instead it should raise a Pull Request (PR) using the branch protection rules and one of the team member should review,confirm and approve the changes.Thereafter the code is merged in the main branch once approved.
+> link used:
+https://spectralops.io/blog/how-to-set-up-git-branch-protection-rules/
 
 #### Workflow 4
 - In this phase we installed AWS Configure,Docker, Kubernetes and Helm in Jumpbox.
