@@ -59,7 +59,7 @@ Elasticsearch is a distributed, RESTful search and analytics engine capable of a
 Kibana is an open source data visualization dashboard for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data.
 
 #### Fluent-bit
-Fluent Bit is a super fast, lightweight, and highly scalable logging and metrics processor and forwarder. It is the preferred choice for cloud and containerized environments.
+Fluent Bit Enables You To Collect Logs And Metrics From Multiple Sources, Enrich Them With Filters, And Distribute Them To Any Defined Destination.
 
 ## Project Workflow
 #### Workflow 1
