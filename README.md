@@ -31,7 +31,7 @@ To access the project sources log on to https://github.com/namrata-aatmani.
 
 ### Software Description
 #### Terraform
-Terraform an infrastructure provisioning tool where you can store your cloud infrastructure setup as codes. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
+Terraform is the infrastructure as code tool from HashiCorp. It is a tool for building, changing, and managing infrastructure in a safe, repeatable way.
 
 #### Docker
 Docker is an open source platform that enables developers to build, deploy, run, update and manage containerized applications.
@@ -40,17 +40,17 @@ Docker is an open source platform that enables developers to build, deploy, run,
 Jenkins is an automation tool written in Java with built-in plugins for continuous integration tasks. It is used to continuously build and test projects making it easier to integrate the changing codes to it.
 
 #### Kubernetes
-Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications in desired states.
+Kubernetes (also known as k8s or “kube”) is an open source container orchestration platform that automates many of the manual processes involved in deploying, managing, and scaling containerized applications.
 
 #### Helm
-Helm is a package manager for Kubernetes that allows developers and operators to more easily package, configure, and deploy applications and services onto Kubernetes clusters.
-Helm packages are called charts, and they consist of a few YAML configuration files and some templates that are rendered into Kubernetes manifest files.
+Helm is a Kubernetes deployment tool for automating creation, packaging, configuration, and deployment of applications and services to Kubernetes clusters.
+Helm uses a packaging format called charts. A chart is a collection of files that describe a related set of Kubernetes resources.
 
 #### Prometheus
 Prometheus is a free and open-source monitoring and alerting tool which records real-time events in a time-series database. It also provides flexible queries and real-time alerting which helps in quick diagnosis and troubleshooting of errors.
 
 #### Grafana
-The open-source platform for monitoring and observability,it allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture.
+Grafana is an open-source platform for metric analytics, monitoring, and visualization.
 
 ####  ElasticSearch
 Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As the heart of the Elastic Stack, it centrally stores your data for lightning fast search, fine‑tuned relevancy, and powerful analytics that scale with ease.
@@ -185,7 +185,7 @@ https://artifacthub.io/packages/helm/prometheus-community/prometheus
 - You can view the metrics in the browser by putting Public-IP with the port number 9090
   
 #### Grafana
-Grafana is an opensource tool which is used to provide the visualization of your metrics.After installing Prometheus successfully, we can install the Grafana and configure Prometheus as a datasource.
+Grafana is an open-source platform for metric analytics, monitoring, and visualization .After installing Prometheus successfully, we can install the Grafana and configure Prometheus as a datasource.
 > Installation link : Grafana
 https://artifacthub.io/packages/helm/grafana/grafana
 
