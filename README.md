@@ -10,7 +10,7 @@
 - Project Workflow
 
 # Project Description and Goals
-In this project we have used NodeJs web application to automate the infrastructure set up on AWS Cloud using Terraform i.e we created a VPC and EKS cluster and deployed the application in three different environments which includes DEV,QA,PROD using Helm .We used jenkins pipeline to build jobs for DEV,QA,PROD and then push the image to ECR ,we need to monitor the application using the monitoring tools i.e Prometheus and Grafana , further checked the logs of the executed application using logging tools i.e  ElasticSearch, Fluent-bit and Kibana.
+In this project we have used NodeJs web application to automate the infrastructure set up on AWS Cloud using Terraform i.e. we created a VPC and EKS cluster. Deployed the application in different environments like DEV, QA and PROD based on the requirements using Helm and Jenkins pipeline and then pushed the image to ECR ,we monitored the application using the monitoring tools i.e Prometheus and Grafana ,further we checked the logs of the executed application using logging tools i.e  ElasticSearch, Fluent-bit and Kibana.
 To access the project sources log on to https://github.com/namrata-aatmani.
 
 ## Project Architecture
@@ -18,6 +18,7 @@ To access the project sources log on to https://github.com/namrata-aatmani.
   
 # Technical Specifications
 ###  Software Tools used:
+- Amazon Web Services(AWS)
 - Terraform
 - Docker
 - Jenkins
@@ -30,6 +31,9 @@ To access the project sources log on to https://github.com/namrata-aatmani.
 - Fluent-bit
 
 ### Software Description
+#### Amazon Web Services(AWS)
+AWS is a cloud service from Amazon, which provides services in the form of building blocks, these building blocks can be used to create and deploy any type of application in the cloud.
+
 #### Terraform
 Terraform is the infrastructure as code tool from HashiCorp. It is a tool for building, changing, and managing infrastructure in a safe, repeatable way.
 
@@ -53,7 +57,7 @@ Prometheus is a free and open-source monitoring and alerting tool which records 
 Grafana is an open-source platform for metric analytics, monitoring, and visualization.
 
 ####  ElasticSearch
-Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As the heart of the Elastic Stack, it centrally stores your data for lightning fast search, fine‑tuned relevancy, and powerful analytics that scale with ease.
+ElasticSearch is a database with search engine where all logs are stored.
 
 ####  Kibana
 Kibana is an open source data visualization dashboard for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data.
@@ -63,7 +67,9 @@ Fluent Bit Enables You To Collect Logs And Metrics From Multiple Sources, Enrich
 
 ## Project Workflow
 #### Workflow 1
-Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ) i.e a Master Cluster and Worker Nodes respectively.
+##### Create a VPC and EKS ( Amazon Elastic Kubernetes Service ) Cluster using Terraform
+Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ) i.e. a Master Cluster and Worker Nodes respectively. A Amazon Elastic Kubernetes Service (Amazon EKS) is a managed AWS Kubernetes service that scales, manages, and deploys containerized applications. It typically runs in the Amazon public cloud, but can also be deployed on premises. The Kubernetes management infrastructure of Amazon EKS runs across multiple Availability Zones (AZ).
+
 > Installation link: Terraform
 https://computingforgeeks.com/how-to-install-terraform-on-ubuntu/
 > link used: EKS
