@@ -236,6 +236,8 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Create new  EC2 Instance[Jumpbox] for Installation of Elasticsearch and Kibana.
 - Install and Configure Elasticsearch using:
   https://phoenixnap.com/kb/how-to-install-elk-stack-on-ubuntu
+- Enable Basic Authentication on EFK Stack
+- https://kifarunix.com/how-to-enable-basic-authentication-on-elk-stack/
 - After installing we need to make necessary changes w.r.t network.host: mention Private IP of the instance where elastic and kibana are installed,
   port address: 9200 , discovery.type: single-node , enable Elasticsearch security features to protect your data in elasticsearch.yml file.
 - Start and Enable the Elasticsearch service then check the status if Elasticsearch is active.
@@ -245,6 +247,8 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Install Kibana in the same instance[Jumpbox] where Elasticsearch is intalled.
 - Install and Configure Kibana using the same link used for Elasticsearch:
   https://phoenixnap.com/kb/how-to-install-elk-stack-on-ubuntu
+- Enable Basic Authentication on EFK Stack
+  https://kifarunix.com/how-to-enable-basic-authentication-on-elk-stack/
 - After installing we need to make necessary changes w.r.t server.port:5601,server.host: mention Private IP of the instance where elastic and kibana 
   are installed,elasticsearch.hosts:mention Public IP of instance where elastic and kibana are installed) ,basic authentication: set up elasticsearch username 
   and password that the Kibana server uses to perform maintenance on the Kibana in kibana.yml file.
