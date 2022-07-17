@@ -68,7 +68,8 @@ Fluent Bit Enables You To Collect Logs And Metrics From Multiple Sources, Enrich
 ## Project Workflow
 #### Workflow 1
 ##### Create a VPC and EKS ( Amazon Elastic Kubernetes Service ) Cluster using Terraform
-Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ) i.e. a Master Cluster and Worker Nodes respectively. A Amazon Elastic Kubernetes Service (Amazon EKS) is a managed AWS Kubernetes service that scales, manages, and deploys containerized applications. It typically runs in the Amazon public cloud, but can also be deployed on premises. The Kubernetes management infrastructure of Amazon EKS runs across multiple Availability Zones (AZ).
+Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ). A Amazon Elastic Kubernetes Service (Amazon EKS) is a managed AWS Kubernetes service that scales, manages, and deploys containerized applications. It typically runs in the Amazon public cloud, but can also be deployed on premises. The Kubernetes management infrastructure of Amazon EKS runs across multiple Availability Zones (AZ).
+EKS Clusters are made up of a control plane and EKS nodes.The EKS control plane is responsible for controlling Kubernetes master nodes,EKS nodes
 
 > Installation link: Terraform
 https://computingforgeeks.com/how-to-install-terraform-on-ubuntu/
