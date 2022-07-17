@@ -88,7 +88,7 @@ Created organization by name namrata-aatmani on Github having two different repo
 - In productionteam repo we pulled the AatmaaniProject i.e 
   from https://github.com/VV-MANOJ/AatmaaniProject
 - Created and Pushed the Dockerfile  written according to the requirement in README.md from the AatmaaniProject.Also,added GIT_COMMIT to get the latest image(to get commit ID of   the untagged image) from the ECR (point in ref with workflow 5 ).
-- In development repo we pushed the Helm chart resources created for nodejs having values dependind on evironments dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
+- In development repo we pushed the Helm chart resources created for nodejs having values depending on evironments dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
 
 #### Workflow 3
 ##### Github merge and branch protection rules
