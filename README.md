@@ -77,33 +77,43 @@ https://computingforgeeks.com/how-to-install-terraform-on-ubuntu/
 https://ap-southeast-1.console.aws.amazon.com/eks/home?region=ap-southeast-1#/clusters
 
 #### Workflow 2
+##### Github reposistories: Productionteam and Development
 Created organization by name namrata-aatmani on Github having two different repositories namely productionteam and development ,added and invited team members to access the same github organization.
 - In productionteam repo we pulled the AatmaaniProject i.e 
   from https://github.com/VV-MANOJ/AatmaaniProject
-- Created and pushed the Dockerfile with respect to details mentioned in README.md    of AatmaaniProject.also,add GIT_COMMIT to get the latest image(to get commit ID of   the untagged image) from the ECR (point in ref with workflow 5 ).
-- In development repo we pushed the Helm chart resources created for nodejs with    dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
+- Created and pushed the Dockerfile with respect to details mentioned in README.md    of AatmaaniProject.Also,added GIT_COMMIT to get the latest image(to get commit ID of   the untagged image) from the ECR (point in ref with workflow 5 ).
+- In development repo we pushed the Helm chart resources created for nodejs having values dependind on evironments dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
 
 #### Workflow 3
-In github organization namely namrata-aatmani's productionteam repo, if a developer updates any code change in the main branch,it should not directly merge to the main branch, instead it should raise a Pull Request (PR) using the branch protection rules and one of the team member should review,confirm and approve the changes.Thereafter the code is merged in the main branch once approved.
+##### Github merge and branch protection rules
+In github organization namely namrata-aatmani's productionteam repo, if a developer updates any code change in the main branch,it should not directly merge to the main branch, instead it should raise a Pull Request (PR) using the branch protection rules and one of the team member should review,confirm and approve the changes.Thereafter the code is merged in the main branch after approval.
 > link used:
 https://spectralops.io/blog/how-to-set-up-git-branch-protection-rules/
 
 #### Workflow 4
+##### Intallation of AWS Configure,Docker, Kubernetes and Helm
 - In this phase we installed AWS Configure,Docker, Kubernetes and Helm in Jumpbox.
+> Installation link :AWS configure
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 > Installation link: Docker
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 > Installation link: Kubernetes
 https://www.codegrepper.com/code-examples/shell/install+kubectl+ubuntu+20.04
-- Created 3 namespaces in EKS Cluster ie. dev,qa and prod in the jumpbox where helm is installed i.e dev environment is for developer Team , qa environment is for testing team. And prod environment is for production team.
+> Installation link: Helm
+https://phoenixnap.com/kb/install-helm
+
+- Created 3 namespaces in EKS Cluster namely dev,qa and prod in the jumpbox where helm is installed , dev environment is for developer Team , qa environment is for testing team and prod environment is for production team.
 - After creating the helm chart rename the values.yml file to dev-values.yml,qa-values.yml,prod-values.yml add ECR repo url 
 (point in ref with Workflow 5),replicaCount:1 (dev),replicaCount:1 (qa),replicaCount:2 (prod), Service type: LoadBalancer, port number:3000 and push the code to github repo. Three loadbalancers will get created w.r.t dev,qa and prod in aws console.A service of type LoadBalancer is the simplest and the fastest way to expose a service inside a Kubernetes cluster to the external world. 
 
 #### Workflow 5
+#####  Create a Amazon Elastic Container Registry(ECR) repository
 - Create a Amazon Elastic Container Registry(ECR) repo and upload latest image.
 > link used : ECR
 https://ap-southeast-1.console.aws.amazon.com/ecr/repositories?region=ap-southeast-1
 
 #### Workflow 6
+##### Installation of Jenkins,Slack integration and pipeline scripts for dev environment, qa environment and prod environment
 - Install Java,Jenkins in the same jumpbox and Create a jenkins job and install the plugins related to AWS,ECR and slack  notification.
 > Installation link: Jenkins
 https://linuxhint.com/install-jenkins-on-ubuntu/
@@ -145,21 +155,21 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
    ![alt text](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Jenkins%20ECR.drawio.png)
 
 #### Workflow 7
-### Metrics Server
+### Metrics Server set up
 Metrics server deployment is required if you are planning to use Horizontal pod autoscaling in your cluster. You will be able to see cpu and memory utilization metrics with metrics-server.
 Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by kubectl top, making it easier to debug autoscaling pipelines.
 > Installation link : Metrics Server
 - https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 
-### Cluster Autoscaler (CA)
+### Cluster Autoscaler (CA) set up
 The Cluster Autoscaler automatically adds or removes nodes in a cluster based on resource requests from pods. The Cluster Autoscaler doesn’t directly measure CPU and memory usage values to make a scaling decision. Instead, it checks every 10 seconds to detect any pods in a pending state, suggesting that the scheduler could not assign them to a node due to insufficient cluster capacity.
 In the scaling-up scenario, CA automatically kicks in when the number of pending (un-schedulable) pods increases due to resource shortages and works to add additional nodes to the cluster.
 > link used :
 - https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler/
 
 #### Workflow 8
-### Horizontal Pod Autoscaler (HPA)
+### Horizontal Pod Autoscaler (HPA) set up
 HPA is a form of autoscaling that increases or decreases the number of pods in a replication controller, deployment, replica set, or stateful set based on CPU utilization—the scaling is horizontal because it affects the number of instances rather than the resources allocated to a single container.
 HPA can make scaling decisions based on custom or externally provided metrics and works automatically after initial configuration. All you need to do is define the MIN and MAX number of replicas.
 Once configured, the Horizontal Pod Autoscaler controller is in charge of checking the metrics and then scaling your replicas up or down accordingly. By default, HPA checks metrics every 15 seconds.
@@ -196,7 +206,7 @@ Grafana is an open-source platform for metric analytics, monitoring, and visuali
 > Installation link : Grafana
 https://artifacthub.io/packages/helm/grafana/grafana
 
-####  Grafana set-up
+#### Grafana set-up
 - Install prometheus using 
   helm repo: https://artifacthub.io/packages/helm/grafana/grafana
 - After installing Grafana ,put the public-ip with port number 3000 and login to grafana using the credentials.
