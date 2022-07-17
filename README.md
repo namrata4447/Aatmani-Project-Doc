@@ -34,6 +34,9 @@ To access the project sources log on to https://github.com/namrata-aatmani.
 #### Amazon Web Services(AWS)
 AWS is a cloud service from Amazon, which provides services in the form of building blocks, these building blocks can be used to create and deploy any type of application in the cloud.
 
+#### Git
+Open source version control tools for developers to manage source code.
+
 #### Terraform
 Terraform is the infrastructure as code tool from HashiCorp. It is a tool for building, changing, and managing infrastructure in a safe, repeatable way.
 
@@ -83,7 +86,7 @@ https://computingforgeeks.com/how-to-install-terraform-on-ubuntu/
 https://ap-southeast-1.console.aws.amazon.com/eks/home?region=ap-southeast-1#/clusters
 
 #### Workflow 2
-##### Github reposistories: Productionteam and Development
+##### Git reposistories: Productionteam and Development
 Created organization by name namrata-aatmani on Github having two different repositories namely productionteam and development ,added and invited team members to access the same github organization.
 - In productionteam repo we pulled the AatmaaniProject i.e 
   from https://github.com/VV-MANOJ/AatmaaniProject
@@ -91,14 +94,14 @@ Created organization by name namrata-aatmani on Github having two different repo
 - In development repo we pushed the Helm chart resources created for nodejs having values depending on evironments dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
 
 #### Workflow 3
-##### Github merge and branch protection rules
+##### Git merge and branch protection rules
 In github organization namely namrata-aatmani's productionteam repo, if a developer updates any code change in the main branch,it should not directly merge to the main branch, instead it should raise a Pull Request (PR) using the branch protection rules and one of the team member should review,confirm and approve the changes.Thereafter the code is merged in the main branch after approval.
 > link used:
 https://spectralops.io/blog/how-to-set-up-git-branch-protection-rules/
 
 #### Workflow 4
 ##### Intallation of AWS Configure,Docker, Kubernetes and Helm
-- In this phase we installed AWS Configure,Docker, Kubernetes and Helm in Jumpbox.
+- Here, we installed AWS Configure,Docker, Kubernetes and Helm in Jumpbox.
 > Installation link :AWS configure
 https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 > Installation link: Docker
@@ -110,7 +113,7 @@ https://phoenixnap.com/kb/install-helm
 
 - Created 3 namespaces in EKS Cluster namely dev,qa and prod in the jumpbox where helm is installed , dev environment is for developer Team , qa environment is for testing team and prod environment is for production team.
 - After creating the helm chart rename the values.yml file to dev-values.yml,qa-values.yml,prod-values.yml add ECR repo url 
-(point in ref with Workflow 5),replicaCount:1 (dev),replicaCount:1 (qa),replicaCount:2 (prod), Service type: LoadBalancer, port number:3000 and push the code to github repo. Three loadbalancers will get created w.r.t dev,qa and prod in aws console.A service of type LoadBalancer is the simplest and the fastest way to expose a service inside a Kubernetes cluster to the external world. 
+(point in ref with Workflow 5),replicaCount:1 (dev),replicaCount:1 (qa),replicaCount:2 (prod), Service type: LoadBalancer, port number:3000 and push the code to github repo. Three loadbalancers will be created w.r.t dev,qa and prod in aws console.A service of type LoadBalancer is the simplest and the fastest way to expose a service inside a Kubernetes cluster to the external world. 
 
 #### Workflow 5
 #####  Create a Amazon Elastic Container Registry(ECR) repository
@@ -131,7 +134,7 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
 
 1. Build and Deploy to the Dev  
      - Create a webhook in namrata-aatmani's development repo by including the jenkins url and in the jenkins job click on the ‘Build Triggers’ tab 
-       and then on the ‘GitHub hook trigger for GITScm polling’ so that the  job triggers automaticaly when there is merge in to main branch.
+       and then on the ‘GitHub hook trigger for GITScm polling’ so that the  job triggers automatically when there is merge in to main branch.
      - In the jenkins pipeline script Git clone
        the repo https://github.com/namrata-aatmani/productionteam.git, the script should pull the nodejs repo.
      - login into ECR and run the docker build . , so that the new dev-latest image is uploaded into ECR,use  GIT_COMMIT in the script  to get the latest image
@@ -161,16 +164,19 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
    ![alt text](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Jenkins%20ECR.drawio.png)
 
 #### Workflow 7
+##### Deployment of Metric server,Cluster Autoscalar (CA) and Horizontal Pod Autoscalar (HPA)
 ### Metrics Server set up
-Metrics server deployment is required if you are planning to use Horizontal pod autoscaling in your cluster. You will be able to see cpu and memory utilization metrics with metrics-server.
+You will be able to see cpu and memory utilization metrics with metrics-server.The Metrics server role frequently checks the metrics of every running pods in EKS cluster. The main role of this server is it will help to Horizontal Pod Autoscaler and Vertical Pod Autoscaler.
 Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by kubectl top, making it easier to debug autoscaling pipelines.
 > Installation link : Metrics Server
 - https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 
-### Cluster Autoscaler (CA) set up
-The Cluster Autoscaler automatically adds or removes nodes in a cluster based on resource requests from pods. The Cluster Autoscaler doesn’t directly measure CPU and memory usage values to make a scaling decision. Instead, it checks every 10 seconds to detect any pods in a pending state, suggesting that the scheduler could not assign them to a node due to insufficient cluster capacity.
-In the scaling-up scenario, CA automatically kicks in when the number of pending (un-schedulable) pods increases due to resource shortages and works to add additional nodes to the cluster.
+### Cluster Autoscalar (CA) set up
+Cluster Autoscalar is a tool that automatically adjusts the size of the Kubernetes cluster based on the utilization of Pods and Nodes in your cluster.
+The Cluster Autoscalar doesn’t directly measure CPU and memory usage values to make a scaling decision. Instead, it checks every 10 seconds to detect any pods in a pending state, suggesting that the scheduler could not assign them to a node due to insufficient cluster capacity.
+In the scaling-up scenario, CA is automatically started when the number of pending (un-schedulable) pods increases due to resource shortages and works to add additional nodes to the cluster.
+It sets the number of nodes in the cluster when nodes are underutilized or when pods fail to schedule.
 > link used :
 - https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler/
 
@@ -200,8 +206,8 @@ https://artifacthub.io/packages/helm/prometheus-community/prometheus
 #### Prometheus set-up
 - Install prometheus using 
   helm repo:   https://artifacthub.io/packages/helm/prometheus-community/prometheus
-- Expose the prometheus server with type NodePort and set target port to 9090,now you can access the prometheus server externally,here a URL is determined.
-- In the alert-rules.ymlfile we will declare alert for slack notification and alert for rules in alert manager like 
+- Expose the prometheus server with type NodePort and set target port to 9090,now you can access the prometheus server externally with the URL that is determined
+- In the alert-rules.yml file we declared alert for slack notification and alert for rules in alert manager like 
   InstanceDown,HostOutOfMemory,HostHighCpuLoad,KubePodCrashLooping,KubePodNotReady etc. and sends event notifications to your configured notification channel 
   including like Slack  when your Kubernetes cluster meets pre-configured events and metrics rules in the Prometheus server.
 - Now we will configure the service and start it .
@@ -213,7 +219,7 @@ Grafana is an open-source platform for metric analytics, monitoring, and visuali
 https://artifacthub.io/packages/helm/grafana/grafana
 
 #### Grafana set-up
-- Install prometheus using 
+- Install Grafana using 
   helm repo: https://artifacthub.io/packages/helm/grafana/grafana
 - After installing Grafana ,put the public-ip with port number 3000 and login to grafana using the credentials.
 - Click on Datasources, choose Prometheus and set the IP address in grafana.
