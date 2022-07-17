@@ -164,15 +164,15 @@ https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1
    ![alt text](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/Jenkins%20ECR.drawio.png)
 
 #### Workflow 7
-##### Deployment of Metric server,Cluster Autoscalar (CA) and Horizontal Pod Autoscalar (HPA)
-### Metrics Server set up
+#### Deployment of Metric server,Cluster Autoscalar (CA) and Horizontal Pod Autoscalar (HPA)
+##### Metrics Server set up
 You will be able to see cpu and memory utilization metrics with metrics-server.The Metrics server role frequently checks the metrics of every running pods in EKS cluster. The main role of this server is it will help to Horizontal Pod Autoscaler and Vertical Pod Autoscaler.
 Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by kubectl top, making it easier to debug autoscaling pipelines.
 > Installation link : Metrics Server
 - https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 
-### Cluster Autoscalar (CA) set up
+##### Cluster Autoscalar (CA) set up
 Cluster Autoscalar is a tool that automatically adjusts the size of the Kubernetes cluster based on the utilization of Pods and Nodes in your cluster.
 The Cluster Autoscalar doesn’t directly measure CPU and memory usage values to make a scaling decision. Instead, it checks every 10 seconds to detect any pods in a pending state, suggesting that the scheduler could not assign them to a node due to insufficient cluster capacity.
 In the scaling-up scenario, CA is automatically started when the number of pending (un-schedulable) pods increases due to resource shortages and works to add additional nodes to the cluster.
@@ -181,7 +181,7 @@ It sets the number of nodes in the cluster when nodes are underutilized or when 
 - https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler/
 
 #### Workflow 8
-### Horizontal Pod Autoscaler (HPA) set up
+##### Horizontal Pod Autoscaler (HPA) set up
 HPA is a form of autoscaling that increases or decreases the number of pods in a replication controller, deployment, replica set, or stateful set based on CPU utilization—the scaling is horizontal because it affects the number of instances rather than the resources allocated to a single container.
 HPA can make scaling decisions based on custom or externally provided metrics and works automatically after initial configuration. All you need to do is define the MIN and MAX number of replicas.
 Once configured, the Horizontal Pod Autoscaler controller is in charge of checking the metrics and then scaling your replicas up or down accordingly. By default, HPA checks metrics every 15 seconds.
@@ -230,7 +230,7 @@ https://artifacthub.io/packages/helm/grafana/grafana
 ![alt test](https://github.com/namrata4447/Aatmani-Project-Doc/blob/main/EFK%20Overview.drawio.png)
 
 #### EFK [ Elasticsearch, Fluent-bit and Kibana ]
-- EFK- is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
+- EFK - is a suite of tools combining Elasticsearch, Fluent-bit and Kibana to manage logs. 
 - EFK stack - is a centralized logging which identifies problems with servers or applications. It searches for the logs in a single place, helps to find 
   issues in multiple servers by connecting logs for a specific time series.
 - ElasticSearch - Acts as a database where the data is collected and logs will be stored.
