@@ -68,7 +68,7 @@ Fluent Bit Enables You To Collect Logs And Metrics From Multiple Sources, Enrich
 ## Project Workflow
 #### Workflow 1
 ##### Create a VPC and EKS ( Amazon Elastic Kubernetes Service ) Cluster using Terraform
-Firstly we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ).
+Firstly, we created a EC2 instance and installed Terraform,using Terraform code we created a VPC , Subnet , IG (internet gateway) , NAT (Network Address Translation), Security group, EC2 instance(Jumpbox),EKS (Elastic Kubernetes Service ).
 An Amazon EKS cluster operates in a Virtual Private Cloud (VPC), a secure private network within an Amazon data center. EKS deploys all resources to an existing subnet in a VPC you select, in one Amazon Region.
 ##### General Information
 ###### Amazon Elastic Kubernetes Service (Amazon EKS)
@@ -87,7 +87,7 @@ https://ap-southeast-1.console.aws.amazon.com/eks/home?region=ap-southeast-1#/cl
 Created organization by name namrata-aatmani on Github having two different repositories namely productionteam and development ,added and invited team members to access the same github organization.
 - In productionteam repo we pulled the AatmaaniProject i.e 
   from https://github.com/VV-MANOJ/AatmaaniProject
-- Created and pushed the Dockerfile with respect to details mentioned in README.md    of AatmaaniProject.Also,added GIT_COMMIT to get the latest image(to get commit ID of   the untagged image) from the ECR (point in ref with workflow 5 ).
+- Created and Pushed the Dockerfile  written according to the requirement in README.md from the AatmaaniProject.Also,added GIT_COMMIT to get the latest image(to get commit ID of   the untagged image) from the ECR (point in ref with workflow 5 ).
 - In development repo we pushed the Helm chart resources created for nodejs having values dependind on evironments dev-values.yml,qa-values.yml,prod-values.yml (point in ref with workflow 4 )and pushed the jenkins nams-dev-pipeline,nams-qa-pipeline and nams-prod-pipeline scripts (point in ref with workflow 6 ).
 
 #### Workflow 3
