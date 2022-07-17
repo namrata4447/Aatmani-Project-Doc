@@ -237,7 +237,7 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Install and Configure Elasticsearch using:
   https://phoenixnap.com/kb/how-to-install-elk-stack-on-ubuntu
 - Enable Basic Authentication on EFK Stack
-- https://kifarunix.com/how-to-enable-basic-authentication-on-elk-stack/
+  https://kifarunix.com/how-to-enable-basic-authentication-on-elk-stack/
 - After installing we need to make necessary changes w.r.t network.host: mention Private IP of the instance where elastic and kibana are installed,
   port address: 9200 , discovery.type: single-node , enable Elasticsearch security features to protect your data in elasticsearch.yml file.
 - Start and Enable the Elasticsearch service then check the status if Elasticsearch is active.
