@@ -273,4 +273,6 @@ https://artifacthub.io/packages/helm/grafana/grafana
   fluent-bit.yml file.
 - Now Fluent Bit DaemonSet is ready to be used with Elasticsearch on a normal  EKS Cluster.
 
+#### Conflicts faced in the project
+- Configuring and setting up logging tools and in monitoring tools.
 
