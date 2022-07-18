@@ -182,8 +182,8 @@ It sets the number of nodes in the cluster when nodes are underutilized or when 
 
 #### Workflow 8
 ##### Horizontal Pod Autoscaler (HPA) set up
-HPA is a form of autoscaling that increases or decreases the number of pods in a replication controller, deployment, replica set, or stateful set based on CPU utilization—the scaling is horizontal because it affects the number of instances rather than the resources allocated to a single container.
-HPA can make scaling decisions based on custom or externally provided metrics and works automatically after initial configuration. All you need to do is define the MIN and MAX number of replicas.
+HorizontalPodAutoscaler controls the scale of a Deployment and its ReplicaSet based on the  CPU resource  utilization.
+All you need to do is define the MIN and MAX number of replicas for your application.
 Once configured, the Horizontal Pod Autoscaler controller is in charge of checking the metrics and then scaling your replicas up or down accordingly. By default, HPA checks metrics every 15 seconds.
 - In this project we have enabled the HPA autoscaling to true in prod-values.yml for prod environment.
 > link used:
@@ -196,9 +196,8 @@ Once configured, the Horizontal Pod Autoscaler controller is in charge of checki
 
 Prometheus is an open source tool for monitoring and alerting applications.
 - Prometheus Server - The Prometheus server handles the scraping and storing of metrics collected from multiple nodes.
-- Node Exporter - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines.
-- Alert Manager - It handles alerts sent based upon the metrics data collected in Prometheus and send event notifications to your configured notification
-  channels  like Slack  when your Kubernetes cluster meets pre-configured events and metrics rules in the Prometheus server.
+- Node Exporter - Helps us in measuring various server resources such as RAM, disk space, and CPU utilization of all target machines,Is an agent which runs on all the nodes, it will get metrics from the nodes and pulls metrics from kubernetes and transfers to Prometheus.
+- Alert Manager - It sends alerts  based upon the metrics data collected in Prometheus and triggers event notifications to your configured  slack  channel when the target is unavailable .
 - Web UI - Provides end user with an interface to visualize data collected by prometheus.For this we will be using  Grafana to visualize the data.
 > Installation link : Prometheus
 https://artifacthub.io/packages/helm/prometheus-community/prometheus
@@ -238,7 +237,7 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Kibana - is a visualization tool, which accesses the logs from Elasticsearch and is able to display to the user in the form of line graph, bar graph,
   pie charts etc. 
   
-#### Installation and set-up of Elasticseach:
+#### Installation and set-up of Elasticsearch:
 - Create new  EC2 Instance[Jumpbox] for Installation of Elasticsearch and Kibana.
 - Install and Configure Elasticsearch using:
   https://phoenixnap.com/kb/how-to-install-elk-stack-on-ubuntu
@@ -268,7 +267,7 @@ https://artifacthub.io/packages/helm/grafana/grafana
 - Install and Configure Fluent-Bit :
   https://docs.fluentbit.io/manual/v/1.3/installation/kubernetes
 - Fluent Bit must be deployed as a DaemonSet, so on that way it will be available on every node of your Kubernetes cluster.
-- To get started  create the namespace, service account and role setup.
+- To get started  we created the namespace, service account and role setup in a fluent-bit.yml file.
 - Create a ConfigMap that will be used by our Fluent Bit DaemonSet.
 - After installing we need to make necessary changes in FLUENT_ELASTICSEARCH_HOST : mention Public IP of the instance where elastic and kibana are installed in 
   fluent-bit.yml file.
